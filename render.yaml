@@ -30,4 +30,4 @@ databases:
   - name: wordpress-db
     databaseName: wordpress
     user: wordpress
-    plan: starter
+    plan: free
