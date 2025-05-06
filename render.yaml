@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: wordpress
+    env: docker
+    plan: standard
+    autoDeploy: false
+    envVars:
+      - key: WORDPRESS_DB_HOST
+        fromService:
+          name: wordpress-db
+          type: database
+      - key: WORDPRESS_DB_USER
+        value: wordpress
+      - key: WORDPRESS_DB_PASSWORD
+        value: strongpassword
+      - key: WORDPRESS_DB_NAME
+        value: wordpress
+
+databases:
+  - name: wordpress-db
+    databaseName: wordpress
+    user: wordpress
+    plan: starter
