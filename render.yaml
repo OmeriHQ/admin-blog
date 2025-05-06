@@ -28,6 +28,6 @@ services:
 
 databases:
   - name: wordpress-db
-    databaseName: wordpress
+    databaseName: wordpress_s92q
     user: wordpress
     plan: free
