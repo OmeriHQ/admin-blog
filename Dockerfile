@@ -1,2 +1,4 @@
 FROM wordpress:php8.1-apache
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+# Install PostgreSQL extension for PHP
+RUN docker-php-ext-install pgsql pdo_pgsql && docker-php-ext-enable pgsql pdo_pgsql
