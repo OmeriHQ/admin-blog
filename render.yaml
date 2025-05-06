@@ -6,15 +6,25 @@ services:
     autoDeploy: false
     envVars:
       - key: WORDPRESS_DB_HOST
-        fromService:
+        fromDatabase:
           name: wordpress-db
-          type: database
+          property: host
+      - key: WORDPRESS_DB_PORT
+        fromDatabase:
+          name: wordpress-db
+          property: port
       - key: WORDPRESS_DB_USER
-        value: wordpress
+        fromDatabase:
+          name: wordpress-db
+          property: user
       - key: WORDPRESS_DB_PASSWORD
-        value: strongpassword
+        fromDatabase:
+          name: wordpress-db
+          property: password
       - key: WORDPRESS_DB_NAME
-        value: wordpress
+        fromDatabase:
+          name: wordpress-db
+          property: database
 
 databases:
   - name: wordpress-db
