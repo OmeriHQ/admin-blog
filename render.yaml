@@ -1,33 +1,22 @@
 services:
   - type: web
+    name: mysql
+    env: docker
+    plan: free
+    autoDeploy: false
+    dockerfilePath: ./mysql.Dockerfile
+
+  - type: web
     name: wordpress
     env: docker
-    plan: standard
+    plan: free
     autoDeploy: false
     envVars:
       - key: WORDPRESS_DB_HOST
-        fromDatabase:
-          name: wordpress-db
-          property: host
-      - key: WORDPRESS_DB_PORT
-        fromDatabase:
-          name: wordpress-db
-          property: port
+        value: mysql
       - key: WORDPRESS_DB_USER
-        fromDatabase:
-          name: wordpress-db
-          property: user
+        value: wordpress
       - key: WORDPRESS_DB_PASSWORD
-        fromDatabase:
-          name: wordpress-db
-          property: password
+        value: strongpassword
       - key: WORDPRESS_DB_NAME
-        fromDatabase:
-          name: wordpress-db
-          property: database
-
-databases:
-  - name: wordpress-db
-    databaseName: wordpress_s92q
-    user: wordpress
-    plan: free
+        value: wordpress
