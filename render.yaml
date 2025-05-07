@@ -11,9 +11,10 @@ services:
     env: docker
     plan: free
     autoDeploy: false
+    dockerfilePath: ./Dockerfile  
     envVars:
       - key: WORDPRESS_DB_HOST
-        value: mysql:3306
+        value: mysql 
       - key: WORDPRESS_DB_USER
         value: wordpress
       - key: WORDPRESS_DB_PASSWORD
