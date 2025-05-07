@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: private_service
     name: mysql
     env: docker
     plan: free
@@ -13,7 +13,7 @@ services:
     autoDeploy: false
     envVars:
       - key: WORDPRESS_DB_HOST
-        value: mysql
+        value: mysql:3306
       - key: WORDPRESS_DB_USER
         value: wordpress
       - key: WORDPRESS_DB_PASSWORD
